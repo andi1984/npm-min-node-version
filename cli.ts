@@ -16,8 +16,16 @@ export function cli(args: string[]) {
 
       // For every direct dependency...
       dependencies.forEach((dependency) => {
-        // 1. Get package.json folder path
-        const packagePath = resolvePackagePath(dependency);
+        // 1. Get package.json folder path searched from the folder the command
+        //    is running in with disabled cache!
+        const packagePath = resolvePackagePath(dependency, process.cwd(), false);
+
+        if (!packagePath || !fs.existsSync(packagePath)) {
+          console.warn(
+            `package.json for "${dependency}" could not be loaded. Thus it is not taken into account.`
+          );
+          return;
+        }
 
         // 2. Read out engines.node info from that package.json file
         const rawData = fs.readFileSync(packagePath);
@@ -36,15 +44,17 @@ export function cli(args: string[]) {
 
         const validRange = semver.validRange(nodeSemVer);
 
-        // If semver is not a valid range... 
+        // If semver is not a valid range...
         if (!validRange) {
-          throw new Error(`${dependency}: ${nodeSemVer} is not a valid SemVer range.`);
+          throw new Error(
+            `${dependency}: ${nodeSemVer} is not a valid SemVer range.`
+          );
         }
 
         // Calculate the minimum Node version that fulfills the package's node
         // semver
         const minNodeVersionObjectForCurrentSemVer = semver.minVersion(
-            validRange
+          validRange
         );
 
         // In case no min version couldn't be calculated --> we throw an error
