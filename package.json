@@ -1,5 +1,5 @@
 {
-  "name": "min-node",
+  "name": "@andi1984/min-node",
   "version": "0.0.1",
   "description": "Find out which minimum version of Node you need to fulfill your dependencies.",
   "main": "index.ts",
