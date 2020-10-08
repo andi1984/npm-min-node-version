@@ -1,6 +1,6 @@
 {
   "name": "@andi1984/min-node",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Find out which minimum version of Node you need to fulfill your NPM dependencies.",
   "main": "build/cli.js",
   "bin": {
