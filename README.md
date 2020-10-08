@@ -2,13 +2,13 @@
 
 ## Idea
 
-NPM already provides for package authors to specify which Node versions their package can be used with, namely the [engines](https://docs.npmjs.com/files/package.json#engines) field in the package.json file.
+NPM already provides a possibility for package authors to specify which Node versions their package can be used with, namely the [engines](https://docs.npmjs.com/files/package.json#engines) field in the package.json file.
 
 ## Motivation
 
-But there is currently no way, except manually clicking through all your node_modules dependencies, to grasp an idea of which the minimum Node version is that you need to have to use your project and all its dependencies.
+But there is currently no way to find out quickly which the minimum required Node version is that you need for your project depending on your dependencies.
 
-So it would be super nice to run
+So it would be super nice to run some script like
 
 `npx min-node`
 
