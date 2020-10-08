@@ -18,7 +18,11 @@ export function cli(args: string[]) {
       dependencies.forEach((dependency) => {
         // 1. Get package.json folder path searched from the folder the command
         //    is running in with disabled cache!
-        const packagePath = resolvePackagePath(dependency, process.cwd(), false);
+        const packagePath = resolvePackagePath(
+          dependency,
+          process.cwd(),
+          false
+        );
 
         if (!packagePath || !fs.existsSync(packagePath)) {
           console.warn(
@@ -80,7 +84,14 @@ export function cli(args: string[]) {
         }
       });
 
-      console.log(`Minimum necessary Node version is ${currentMinVersion}`);
+      // If we did not came up with a minimum version --> we throw an error
+      if (currentMinVersion === undefined) {
+        throw new Error(
+          `Unable to calculate a minimum node version. Sorry. Please file a ticket including your current package.json. Thanks!`
+        );
+      }
+
+      console.log(`The minimum necessary Node version is at least ${currentMinVersion}.`);
       return currentMinVersion;
     });
   });
