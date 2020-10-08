@@ -81,6 +81,7 @@ export function cli(args: string[]) {
       });
 
       console.log(`Minimum necessary Node version is ${currentMinVersion}`);
+      return currentMinVersion;
     });
   });
 
