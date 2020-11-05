@@ -91,10 +91,10 @@ export function cli(args: string[]) {
         );
       }
 
-      console.log(`The minimum necessary Node version is at least ${currentMinVersion}.`);
+      console.log(
+        `The minimum necessary Node version is at least ${currentMinVersion}.`
+      );
       return currentMinVersion;
     });
   });
-
-  debugger;
 }
