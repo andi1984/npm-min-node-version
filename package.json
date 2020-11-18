@@ -1,6 +1,6 @@
 {
   "name": "min-node",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Find out which minimum version of Node you need to fulfill your NPM dependencies.",
   "main": "build/main.js",
   "bin": {
