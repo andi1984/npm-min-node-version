@@ -1,7 +1,7 @@
-import async from "./dev/async";
+import minNode from "./dev/minNode";
 import cli from "./dev/cli";
 
 export default {
   cli,
-  async,
+  minNode,
 };

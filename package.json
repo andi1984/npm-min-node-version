@@ -2,7 +2,7 @@
   "name": "min-node",
   "version": "0.3.0",
   "description": "Find out which minimum version of Node you need to fulfill your NPM dependencies.",
-  "main": "build/cli.js",
+  "main": "build/main.js",
   "bin": {
     "nodemin": "bin/node"
   },

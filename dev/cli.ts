@@ -1,4 +1,4 @@
-import minNode from "./async";
+import minNode from "./minNode";
 
 async function cli(args: string[]) {
   const minNodeVersion = await minNode().catch(console.error);

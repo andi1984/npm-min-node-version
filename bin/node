@@ -1,2 +1,3 @@
 #!/usr/bin/env node
-require('../build/cli').cli(process.argv);
+const main = require("../build/main").default;
+main.cli(process.argv);
